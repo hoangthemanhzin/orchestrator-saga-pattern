@@ -1,0 +1,30 @@
+-- ------------------ --
+-- Create Order Table --
+------------------------
+
+CREATE TABLE IF NOT EXISTS order(
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    orderPrice DOUBLE not null,
+    orderUUID VARCHAR(255) not null,
+    stockStatus VARCHAR(255),
+    stockServiceReason VARCHAR(255),
+    paymentServiceReason VARCHAR(255)
+);
+
+-- ------------------ --
+-- Create Item Table  --
+------------------------
+
+CREATE TABLE item(
+    Id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT not null,
+    itemUUID VARCHAR(255) not null,
+    quantity BIGINT not null,
+);
+
+-- ------------------------------------------------------------- --
+-- Create a relation between the order table and the item table  --
+-------------------------------------------------------------------
+ALTER TABLE item
+ADD CONSTRAINT fk_item_order
+FOREIGN KEY(order_id) REFERENCES order(Id) ON DELETE CASCADE;

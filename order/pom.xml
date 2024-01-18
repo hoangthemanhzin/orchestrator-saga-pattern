@@ -41,6 +41,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.23</version> <!-- Thay version bằng phiên bản MySQL Connector/J bạn đang sử dụng -->
+        </dependency>
+        <dependency>
             <groupId>com.example</groupId>
             <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>

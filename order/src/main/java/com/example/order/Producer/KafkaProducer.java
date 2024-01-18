@@ -26,7 +26,6 @@ public class KafkaProducer {
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, order.class);
-        // See https://kafka.apache.org/documentation/#producerconfigs for more properties
         return props;
     }
 
@@ -40,6 +39,4 @@ public class KafkaProducer {
         log.debug("sending orderInfor to order topic : ", orderInfor);
         kafkaTemplate.send("order", key, orderInfor);
     }
-
-
 }
