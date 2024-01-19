@@ -16,6 +16,7 @@ import java.util.Map;
 @Configuration
 @Slf4j
 public class KafkaProducer {
+    @Bean
     public ProducerFactory<String, order> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
@@ -32,11 +33,5 @@ public class KafkaProducer {
     @Bean
     public KafkaTemplate<String, order> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
-    }
-    private final KafkaTemplate<String, order> kafkaTemplate = this.kafkaTemplate();
-
-    public void sendOrder(String key, order orderInfor){
-        log.debug("sending orderInfor to order topic : ", orderInfor);
-        kafkaTemplate.send("order", key, orderInfor);
     }
 }
