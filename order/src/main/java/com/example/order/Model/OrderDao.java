@@ -1,6 +1,7 @@
 package com.example.order.Model;
 
 import com.example.common.util.orderStatus;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -16,6 +17,7 @@ public class OrderDao {
     private double orderPrice;
     @OneToMany(mappedBy = "order",
                cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<ItemDao> items;
     private String orderUUID;
     private String stockStatus = orderStatus.NEW;
