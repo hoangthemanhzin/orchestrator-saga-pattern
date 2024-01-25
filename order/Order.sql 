@@ -1,30 +1,34 @@
+
+DROP SCHEMA saga_demo;
+CREATE SCHEMA saga_demo;
+use saga_demo;
 -- ------------------ --
 -- Create Order Table --
 ------------------------
 
-CREATE TABLE IF NOT EXISTS order(
+CREATE TABLE IF NOT EXISTS order_table(
     Id INT AUTO_INCREMENT PRIMARY KEY,
-    orderPrice DOUBLE not null,
-    orderUUID VARCHAR(255) not null,
-    stockStatus VARCHAR(255),
-    stockServiceReason VARCHAR(255),
-    paymentServiceReason VARCHAR(255)
+    order_price DOUBLE not null,
+    orderuuid VARCHAR(255) not null,
+    stock_status VARCHAR(255),
+    stock_service_reason VARCHAR(255),
+    payment_service_reason VARCHAR(255)
 );
 
 -- ------------------ --
 -- Create Item Table  --
 ------------------------
 
-CREATE TABLE item(
+CREATE TABLE item_table(
     Id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT not null,
-    itemUUID VARCHAR(255) not null,
-    quantity BIGINT not null,
+    itemuuid VARCHAR(255) not null,
+    quantity BIGINT not null
 );
 
 -- ------------------------------------------------------------- --
 -- Create a relation between the order table and the item table  --
 -------------------------------------------------------------------
-ALTER TABLE item
+ALTER TABLE item_table
 ADD CONSTRAINT fk_item_order
-FOREIGN KEY(order_id) REFERENCES order(Id) ON DELETE CASCADE;
+FOREIGN KEY(order_id) REFERENCES order_table(Id) ON DELETE CASCADE;

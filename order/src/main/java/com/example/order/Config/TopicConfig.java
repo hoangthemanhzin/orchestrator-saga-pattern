@@ -24,8 +24,8 @@ public class TopicConfig {
     @Bean
     public NewTopic createorderTopic() {
         return TopicBuilder.name("order")
-                .partitions(10)
-                .replicas(3)
+                .partitions(3)
+                .replicas(1)
                 .compact()
                 .build();
     }

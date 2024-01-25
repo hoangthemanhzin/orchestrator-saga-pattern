@@ -26,7 +26,7 @@ public class DAOGenerator {
             + "number of orders : " + orders.toString() + "number of items : " + items.toString());
         }
         List<OrderDao> listOrderDao = new ArrayList<>();
-        for(int i = 0; i <= orders.orElse(3L); i++){
+        for(int i = 0; i < orders.orElse(3L); i++){
             OrderDao orderDao = new OrderDao();
             orderDao.setOrderPrice(Math.random()*300);
             orderDao.setOrderUUID(UUID.randomUUID().toString());

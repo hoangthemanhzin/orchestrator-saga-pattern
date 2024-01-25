@@ -24,4 +24,6 @@ public class order {
         this.paymentServiceReason = paymentServiceReason;
     }
 
+    public order() {
+    }
 }
