@@ -2,10 +2,9 @@ package com.example.common.entity;
 
 import lombok.Data;
 import java.util.List;
-import java.util.stream.Stream;
 
 @Data
-public class order {
+public class Order {
     private String orderNumber;
     private List<item> items;
     private double orderPrice;
@@ -14,7 +13,7 @@ public class order {
     private String paymentStatus;
     private String paymentServiceReason;
 
-    public order(String orderNumber, List<item> items, double orderPrice, String stockStatus, String stockServiceReason, String paymentStatus, String paymentServiceReason) {
+    public Order(String orderNumber, List<item> items, double orderPrice, String stockStatus, String stockServiceReason, String paymentStatus, String paymentServiceReason) {
         this.orderNumber = orderNumber;
         this.items = items;
         this.orderPrice = orderPrice;
@@ -24,6 +23,6 @@ public class order {
         this.paymentServiceReason = paymentServiceReason;
     }
 
-    public order() {
+    public Order() {
     }
 }
